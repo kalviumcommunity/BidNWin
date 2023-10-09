@@ -45,6 +45,13 @@ public class AuctionItem {
         this.ItemLocation = itemLocation;
     }
 
+    public AuctionItem (){
+        System.out.println("default constructor called");
+    };
+
+    public AuctionItem getThis() {
+        return this;
+    }
 
     public int getItemID() {
         return ItemID;

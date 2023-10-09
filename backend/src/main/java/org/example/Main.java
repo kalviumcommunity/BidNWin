@@ -25,14 +25,18 @@ public class Main {
                 System.currentTimeMillis(), System.currentTimeMillis() + 86400000, "Electronics",
                 "New", "New York", itemImages, 75.0, "Free shipping");
 
-        auctionItem1.setCurrentBid(80.0);
+        // auctionItem1.setCurrentBid(80.0);
         auctionItem1.getBidders().add("Bidder1");
-        System.out.println("Auction Status: " + auctionItem1.getItemStatus());
+        // System.out.println("Auction Status: " + auctionItem1.getItemStatus());
 
-        auctionItem1.closeAuction();
+        // auctionItem1.closeAuction();
 
-        System.out.println("Bidder: " + bid1.getBidder());
-        System.out.println("User: " + user1.getUsername());
-        System.out.println("Auction Status: " + auctionItem1.getItemStatus());
+        // System.out.println("Bidder: " + bid1.getBidder());
+        // System.out.println("User: " + user1.getUsername());
+        // System.out.println("Auction Status: " + auctionItem1.getItemStatus());
+        AuctionItem auctionItem2 = new AuctionItem();
+        int address = System.identityHashCode(auctionItem2);
+        System.out.println(Integer.toHexString(address));
+        System.out.println(auctionItem2.getThis());
     }
 }
