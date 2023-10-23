@@ -7,36 +7,46 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Bid bid1 = new Bid(1, 100.0, new Date(), "JohnDoe", "Item1", "Active");
+        AuctionSystem auctionSystem = new AuctionSystem();
 
-        List<String> paymentMethods = new ArrayList<>();
-        paymentMethods.add("Credit Card");
-        paymentMethods.add("PayPal");
+        User seller = new User(1, "Dr Frank", "password123", "Evil@example.com", "Frank Castalinio", "BatCave",
+                1000.0, new ArrayList<>(), 1, 0, User.UserType.REGULAR_USER, 0, 0, 5.0, "seller.jpg", new Date());
 
-        User user1 = new User(1, "JohnDoe", "password123", "john@example.com", "John Doe",
-                "123 Main St", 1000.0, paymentMethods, 5, 10, User.UserType.COMPANY_USER,
-                2, 20, 4.5, "profile.jpg", new Date());
+        auctionSystem.registerUser(seller);
 
         List<String> itemImages = new ArrayList<>();
-        itemImages.add("image1.jpg");
-        itemImages.add("image2.jpg");
+        itemImages.add("item1.jpg");
+        itemImages.add("item2.jpg");
+        AuctionItem item = new AuctionItem(1, "Gamma Pulsator", "High Density Gamma rays pulsator", 100.0, seller.getUsername(),
+                new Date().getTime(), new Date().getTime() + 3600000, "Electronics", "New", "Gotham",
+                itemImages, 150.0, "Free shipping");
 
-        AuctionItem auctionItem1 = new AuctionItem(1, "Item1", "A nice item", 50.0, "JohnDoe",
-                System.currentTimeMillis(), System.currentTimeMillis() + 86400000, "Electronics",
-                "New", "New York", itemImages, 75.0, "Free shipping");
+        auctionSystem.startAuction(item);
 
-        // auctionItem1.setCurrentBid(80.0);
-        auctionItem1.getBidders().add("Bidder1");
-        // System.out.println("Auction Status: " + auctionItem1.getItemStatus());
+        User bidder = new User(2, "bidder456", "password456", "bidder@example.com", "Bidder Name", "Bidder Address",
+                500.0, new ArrayList<>(), 0, 0, User.UserType.COMPANY_USER, 0, 0, 4.5, "bidder.jpg", new Date());
 
-        // auctionItem1.closeAuction();
+        auctionSystem.registerUser(bidder);
 
-        // System.out.println("Bidder: " + bid1.getBidder());
-        // System.out.println("User: " + user1.getUsername());
-        // System.out.println("Auction Status: " + auctionItem1.getItemStatus());
-        AuctionItem auctionItem2 = new AuctionItem();
-        int address = System.identityHashCode(auctionItem2);
-        System.out.println(Integer.toHexString(address));
-        System.out.println(auctionItem2.getThis());
+        System.out.println("Auction System: Auction started.");
+
+        System.out.println("Seller: " + seller.getUsername() + " registered.");
+        System.out.println("Item: " + item.getItemName() + " listed for auction.");
+
+        auctionSystem.placeBid(bidder, item, 120.0);
+        // System.out.println("Bidder: " + bidder.getUsername() + " placed a bid of $120 on " + item.getItemName() + ".");
+
+        User bidder2 = new User(3, "bidder789", "password789", "anotherbidder@example.com", "Another Bidder", "Bidder Address",
+                700.0, new ArrayList<>(), 0, 0, User.UserType.REGULAR_USER, 0, 0, 4.0, "another_bidder.jpg", new Date());
+
+        auctionSystem.registerUser(bidder2);
+
+        auctionSystem.placeBid(bidder2, item, 150.0);
+        // System.out.println("Bidder: " + bidder2.getUsername() + " placed a bid of $150 on " + item.getItemName() + ".");
+
+        auctionSystem.closeAuction(item);
+        System.out.println("Auction for " + item.getItemName() + " closed.");
+        auctionSystem.showUsers();
+        // System.out.println(auctionSystem.showUsers());
     }
 }
