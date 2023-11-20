@@ -43,8 +43,16 @@ public class AuctionItem {
         this.ShippingDetails = shippingDetails;
         this.ItemCondition = itemCondition;
         this.ItemLocation = itemLocation;
+        // System.out.println("parameterized constructor called");
     }
 
+    public AuctionItem (){
+        System.out.println("default constructor called");
+    };
+
+    public AuctionItem getThis() {
+        return this;
+    }
 
     public int getItemID() {
         return ItemID;
@@ -181,6 +189,8 @@ public class AuctionItem {
     public void setItemLocation(String itemLocation) {
         this.ItemLocation = itemLocation;
     }
+
+    
 
     public void closeAuction() {
         if ("Active".equals(ItemStatus)) {
