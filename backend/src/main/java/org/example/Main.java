@@ -21,6 +21,8 @@ public class Main {
                 new Date().getTime(), new Date().getTime() + 3600000, "Electronics", "New", "Gotham",
                 itemImages, 150.0, "Free shipping");
 
+        System.out.println("Total Auctions: " + AuctionSystem.getTotalAuctions());        
+        
         auctionSystem.startAuction(item);
 
         User bidder = new User(2, "bidder456", "password456", "bidder@example.com", "Bidder Name", "Bidder Address",
@@ -46,7 +48,9 @@ public class Main {
 
         auctionSystem.closeAuction(item);
         System.out.println("Auction for " + item.getItemName() + " closed.");
-        auctionSystem.showUsers();
-        // System.out.println(auctionSystem.showUsers());
+        // auctionSystem.showUsers();
+        System.out.println(auctionSystem.showUsers());
+        // AuctionSystem.getTotalAuctions();
+        System.out.println("Total Auctions: " + AuctionSystem.getTotalAuctions());
     }
 }

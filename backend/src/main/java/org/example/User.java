@@ -3,7 +3,7 @@ package org.example;
 import java.util.List;
 import java.util.Date;
 
-public class User {
+public class User implements UserInterface {
     private int userID;
     private String username;
     private String password;
@@ -43,53 +43,133 @@ public class User {
         this.lastLogin = lastLogin;
     }
 
-    public int getUserID() { return userID; }
-    public void setUserID(int userID) { this.userID = userID; }
+    public int getUserID() {
+        return userID;
+    }
 
-    public String getUsername() { return username; }
-    public void setUsername(String username) { this.username = username; }
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+    public String getUsername() {
+        return username;
+    }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-    public String getFullName() { return fullName; }
-    public void setFullName(String fullName) { this.fullName = fullName; }
+    public String getPassword() {
+        return password;
+    }
 
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-    public double getAccountBalance() { return accountBalance; }
-    public void setAccountBalance(double accountBalance) { this.accountBalance = accountBalance; }
+    public String getEmail() {
+        return email;
+    }
 
-    public List<String> getPaymentMethods() { return paymentMethods; }
-    public void setPaymentMethods(List<String> paymentMethods) { this.paymentMethods = paymentMethods; }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public int getAuctionsCreated() { return auctionsCreated; }
-    public void setAuctionsCreated(int auctionsCreated) { this.auctionsCreated = auctionsCreated; }
+    public String getFullName() {
+        return fullName;
+    }
 
-    public int getAuctionsParticipated() { return auctionsParticipated; }
-    public void setAuctionsParticipated(int auctionsParticipated) { this.auctionsParticipated = auctionsParticipated; }
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
-    public UserType getUserType() { return userType; }
-    public void setUserType(UserType userType) { this.userType = userType; }
+    public String getAddress() {
+        return address;
+    }
 
-    public int getBidsWon() { return bidsWon; }
-    public void setBidsWon(int bidsWon) { this.bidsWon = bidsWon; }
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-    public int getBidsPlaced() { return bidsPlaced; }
-    public void setBidsPlaced(int bidsPlaced) { this.bidsPlaced = bidsPlaced; }
+    public double getAccountBalance() {
+        return accountBalance;
+    }
 
-    public double getRating() { return rating; }
-    public void setRating(double rating) { this.rating = rating; }
+    public void setAccountBalance(double accountBalance) {
+        this.accountBalance = accountBalance;
+    }
 
-    public String getProfilePicture() { return profilePicture; }
-    public void setProfilePicture(String profilePicture) { this.profilePicture = profilePicture; }
+    public List<String> getPaymentMethods() {
+        return paymentMethods;
+    }
 
-    public Date getLastLogin() { return lastLogin; }
-    public void setLastLogin(Date lastLogin) { this.lastLogin = lastLogin; }
+    public void setPaymentMethods(List<String> paymentMethods) {
+        this.paymentMethods = paymentMethods;
+    }
+
+    public int getAuctionsCreated() {
+        return auctionsCreated;
+    }
+
+    public void setAuctionsCreated(int auctionsCreated) {
+        this.auctionsCreated = auctionsCreated;
+    }
+
+    public int getAuctionsParticipated() {
+        return auctionsParticipated;
+    }
+
+    public void setAuctionsParticipated(int auctionsParticipated) {
+        this.auctionsParticipated = auctionsParticipated;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
+    }
+
+    public int getBidsWon() {
+        return bidsWon;
+    }
+
+    public void setBidsWon(int bidsWon) {
+        this.bidsWon = bidsWon;
+    }
+
+    public int getBidsPlaced() {
+        return bidsPlaced;
+    }
+
+    public void setBidsPlaced(int bidsPlaced) {
+        this.bidsPlaced = bidsPlaced;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public Date getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(Date lastLogin) {
+        this.lastLogin = lastLogin;
+    }
 
     public enum UserType {
         COMPANY_USER,
