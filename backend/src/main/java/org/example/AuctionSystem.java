@@ -8,6 +8,8 @@ public class AuctionSystem {
     private List<User> users;
     private List<Bid> bidHistory;
 
+    private static int totalAuctions = 0;
+
     public AuctionSystem() {
         activeAuctions = new ArrayList<>();
         users = new ArrayList<>();
@@ -18,18 +20,24 @@ public class AuctionSystem {
         users.add(user);
     }
 
-    public void showUsers() {
-        for (int i = 0; i < users.size(); i++) {
-            System.out.println(users.get(i).getUsername());
-        }
-    }
-
-    // public List<User> showUsers (){
-    //     return users; 
+    // public void showUsers() {
+    //     for (int i = 0; i < users.size(); i++) {
+    //         System.out.println(users.get(i).getUsername());
+    //     }
     // }
+
+    public List<User> showUsers (){
+        return users; 
+    }
 
     public void startAuction(AuctionItem item) {
         activeAuctions.add(item);
+        totalAuctions++;
+    }
+
+    public static int getTotalAuctions() {
+        // System.out.println("total auctions are ");
+        return totalAuctions;
     }
 
     public void placeBid(User bidder, AuctionItem item, double amount) {
